@@ -61,5 +61,5 @@ contract pagamentoCrypto{
 // fazer estrutura para armazenar todas as entregas de produto
 // funcao para executar contrato de fornecimento
 // escrever funcao para permitir saque de moedas
-
+//   testando o github
 
