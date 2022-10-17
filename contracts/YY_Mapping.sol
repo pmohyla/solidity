@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-
+ 
 pragma solidity ^0.8.2;
 
 contract mappings{
@@ -10,7 +10,7 @@ contract mappings{
     function depositar() external payable{
         saldos[msg.sender] += msg.value;
     }
-    function ler_Deposito() external view returns(uint256){
+    function ler_Deposito() private view returns(uint256){
         return (saldos[msg.sender]);
     }
 
@@ -27,6 +27,8 @@ contract mappings{
     }        
     
 }
+
+/*
 contract lista{
     uint lista;
 
@@ -42,3 +44,20 @@ contract lista{
     }
 
 }
+*/
+/*
+contract dicionario{
+    mapping(address => uint[]) pontuacao;
+
+    function add(uint ponto) external {
+        pontuacao[msg.sender].push(ponto);
+    }
+    function ler()external view returns(uint){
+        uint total;
+        for (uint i; i<pontuacao[msg.sender].length; i++){
+        total = total + pontuacao[msg.sender][i];
+        }
+        return total;
+    }   
+}
+*/

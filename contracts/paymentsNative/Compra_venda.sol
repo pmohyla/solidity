@@ -8,7 +8,7 @@ contract CompraVenda{
     
     compra[] public encomendas;
     
-    compra public pedidoCompra;        // "compra " É o TIPO da variavel/OBJETO "PedidoCompra", é o OBJETO neste caso.
+    compra public pedidoCompra;        // "compra " É o TIPO/unidade da variavel/OBJETO .  "PedidoCompra", é o OBJETO neste caso.
                                      // "pedidoCompra" é o OBJETO !!!  
     struct compra{                   // STRUCT define as caracteristicas do TIPO "compra".Como ele é !!.
         string produto;
@@ -21,21 +21,20 @@ contract CompraVenda{
         
     }
     constructor (){               //  Sao as  Variaveis a serem  utilizadas no Contrato.
-        catalogo["cafe"]=450;
-        catalogo["arroz"]=350;     //  Na verdade sao as variaveis do Dicionario/Maqpping
+        catalogo["cafe"]=450;       // Os  KEYS sao STRINGS : cafe,arroz,feijao , etc
+        catalogo["arroz"]=350;     //  Na verdade sao as variaveis do Dicionario:Catalogo
         catalogo["feijao"]=700;     //  formam o conteudo do Dicionario/Mapping 
-        catalogo["uva"]= 200;
-    
+        catalogo["uva"]= 200;    
     }
 
-    function getCatalogo(string memory produto, uint qdade) public view returns(uint){
-        return catalogo[produto]* qdade;
+    function getCatalogo(string memory produto, uint qdadedesejada) public view returns(uint){
+        return catalogo[produto]* qdadedesejada;
                                              // o Produto é a STRING (KEY)e a qdade é o UINT (VALUE) do Mapping.
     }
 
     function comprar(string memory nomeProduto, uint qdadeComprar) payable public returns(string memory){
         require (catalogo[nomeProduto]*qdadeComprar <= msg.value, " Erro de pagamento");
-        pedidoCompra.produto = nomeProduto;                          // Nomes ESPECiFICOS" que assume o OBJETO.
+        pedidoCompra.produto = nomeProduto;                          // Nomes/condicoes comuns atribuidos aos paramentros do OBJETO/PedidoCompra.
         pedidoCompra.aPagar = catalogo[nomeProduto]*qdadeComprar;               //   idem
         pedidoCompra.pago = true;                                    //idem  CONDICAO ESPECIFICA DE ENTRADA
         pedidoCompra.qdade= qdadeComprar;         
@@ -57,6 +56,7 @@ contract CompraVenda{
         pedidoCompra.enviado = true;
         return "enviado com sucesso";
     }
+
     function receberProduto(bool emConformidade) public{
         require (pedidoCompra.entregue == false , " Pedido ja foi recebido");
         if (emConformidade == true){

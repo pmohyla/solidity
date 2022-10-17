@@ -23,7 +23,7 @@ contract dicionarios{
                  uint IDpedidoCompra, 
                  string calldata nomeProduto,
                  uint valorProduto)
-    external {
+                                                external {
         pedidosCompras[nomeCliente][IDpedidoCompra] = produto(nomeProduto,valorProduto);
 
     }
