@@ -24,7 +24,8 @@ contract CompraVenda{
         catalogo["cafe"]=450;       // Os  KEYS sao STRINGS : cafe,arroz,feijao , etc
         catalogo["arroz"]=350;     //  Na verdade sao as variaveis do Dicionario:Catalogo
         catalogo["feijao"]=700;     //  formam o conteudo do Dicionario/Mapping 
-        catalogo["uva"]= 200;    
+        catalogo["uva"]= 200;  
+        catalogo["carne"]=750;  
     }
 
     function getCatalogo(string memory produto, uint qdadedesejada) public view returns(uint){
