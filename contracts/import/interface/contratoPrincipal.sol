@@ -2,11 +2,12 @@
 pragma solidity ^0.8.2;
 import './interface.sol';
 
-import '../../../formula.sol';
+
 
 contract contratoPrincipal {
     IcontratoPai public qqcontrato;
     Iformula public qqformula;
+
     constructor(IcontratoPai interfaceContrato , Iformula parametros){
         qqcontrato = interfaceContrato;
         qqformula = parametros;
