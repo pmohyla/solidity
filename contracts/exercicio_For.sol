@@ -7,7 +7,12 @@ contract exercicio_For{
     function looping(uint valor) external {          
         //for (uint i; i < lista.length ; i++)
             lista.push(valor);
+                  
         
+    }
+
+    function getLista(uint pos)external view returns(uint){
+        return lista[pos];
     }
     function verificar() external view returns(uint){
         uint maiorNumero = 0;
