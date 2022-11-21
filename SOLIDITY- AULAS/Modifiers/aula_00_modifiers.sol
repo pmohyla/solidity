@@ -13,12 +13,13 @@ contract modifiersLocal{
     modifier apenasDono(){ 
         //trata-se de um Testador de codigo 
         require (msg.sender == dono , "nao e o dono");
-        _;        
+        _;    
     }
 
     function emitirSelo(address beneficiario) virtual public apenasDono returns(string memory){
         seloQualidade[beneficiario] = true;
-        console = "seloQualidade emitido com sucesso";
+        console = "seloQualidade emitido com sucesso"; 
+        return console;
         
     }
 }
